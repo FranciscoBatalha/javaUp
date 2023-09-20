@@ -12,7 +12,7 @@ public class AutorController {
     @Autowired
     private AutorRepository AutorRepository;
     @GetMapping
-    public List<Autor> listarVeiculos() {
+    public List<Autor> listarAutores() {
         return AutorRepository.findAll();
     }
     @PostMapping
@@ -30,8 +30,8 @@ public class AutorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Autor> atualizarVeiculo(@PathVariable Long id, @RequestBody Autor autorAtualizado) {
-        if (veiculoRepository.existsById(id)) {
+    public ResponseEntity<Autor> atualizarAutores(@PathVariable Long id, @RequestBody Autor autorAtualizado) {
+        if (autorRepository.existsById(id)) {
             Autor autor = autorRepository.findById(id).get();
             autor.setEdicao(autorAtualizado.getEdicao());
             autor.setEditora(autorAtualizado.getEditora());
